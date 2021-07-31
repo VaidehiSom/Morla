@@ -1,8 +1,8 @@
 <?xml version='1.0'?>
 
-<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="morla" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find robot)/urdf/robot.gazebo" />
+  <xacro:include filename="$(find morla)/urdf/morla.gazebo" />
 
   <material name="black">
     <color rgba="0 0 0 1"/>
@@ -21,7 +21,7 @@
 
     <inertial>
       <mass value="2"/>
-      <origin xyz="0 0 0" rpy=" 1.5707 0 1.5707"/>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <inertia
           ixx="0.004889713" ixy="0" ixz="0"
           iyy="0.004008093" iyz="0.000240565"
@@ -30,7 +30,7 @@
     </inertial>
 
     <collision name='chassis_collision'>
-      <origin xyz="0 0 0" rpy=" 1.5707 0 1.5707"/>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
         <!--<box size="1.0 1.0 1.0"/>-->
         <mesh filename="package://morla/meshes/morlaChassis.dae"/>
@@ -38,7 +38,7 @@
     </collision>
 
     <visual name='chassis_visual'>
-      <origin xyz="0 0 0" rpy=" 1.5707 0 1.5707"/>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
         <mesh filename="package://morla/meshes/morlaChassis.dae"/>
       </geometry>
@@ -103,7 +103,7 @@
       <material name="black"/>
     </visual>
   </link>
-  
+  <!--
   <link name='omni_wheel'>
     <pose>0 0 0 0 0 0</pose>
 
@@ -132,7 +132,7 @@
       <material name="black"/>
     </visual>
   </link>
-
+  -->
 <!-- links for sensors -->
 
   <!--  <link name='hokuyo'>
@@ -197,7 +197,7 @@
       <!-- </link>
       -->
   <joint type="continuous" name="left_wheel_hinge">
-    <origin xyz="-0.100266 -0.242145 0.03" rpy=" 0 -1.5707 1.5707"/>
+    <origin xyz="-0.05 -0.0742145 -0.021" rpy=" 0 0 0"/>
     <child link="left_wheel"/>
     <parent link="morla_chassis"/>
     <axis xyz="0 0 1" rpy="0 0 0"/>
@@ -206,7 +206,7 @@
   </joint>
 
   <joint type="continuous" name="right_wheel_hinge">
-    <origin xyz="-0.100266 0.242145 0.03" rpy=" 0 -1.5707 1.5707"/>
+    <origin xyz="-0.05 0.0742145 -0.021" rpy=" 0 0 0"/>
     <child link="right_wheel"/>
     <parent link="morla_chassis"/>
     <axis xyz="0 0 1" rpy="0 0 0"/>
@@ -223,14 +223,14 @@
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
   -->
-  <joint type="continuous" name="omni_wheel_hinge">
+  <!-- <joint type="continuous" name="omni_wheel_hinge">
     <origin xyz="0.233497 -0.000865 0" rpy="0.000212 -0.118296 -0.001802"/>
     <child link="omni_wheel"/>
     <parent link="morla_chassis"/>
     <axis xyz="0 0 1" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <dynamics damping="1.0" friction="1.0"/>
-  </joint>
+  </joint>-->
   <!--
   <joint name="camera_fake_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.57 -1.57 3.14"/>
@@ -240,7 +240,10 @@
 
   <joint name="hokuyo_joint" type="fixed">
     <origin xyz="-0.2 0 0.1" rpy="0 0 0"/>
-    <parent link="robot_body"/>
+    <parent link="r>>>
+<robot>
+<robot>
+<robot>obot_body"/>
     <child link="hokuyo"/>
   </joint>
   -->
